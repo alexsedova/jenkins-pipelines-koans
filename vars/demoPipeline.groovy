@@ -1,7 +1,7 @@
 def call() {
     pipeline {
         agent {
-            label 'demo'
+            label 'bla'
         }
         stages {
             stage('first stage') {
@@ -12,6 +12,16 @@ def call() {
             stage('build') {
                 steps {
                     sh 'gradle build'
+                }
+            }
+            stage('custom') {
+                steps {
+                    customMethodOne('test')
+                }
+            }
+            stage('test') {
+                steps {
+                    customMethodTwo('custom action')
                 }
             }
         }
